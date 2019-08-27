@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- slider -->
+<div class="slider ind-slider">
+    <ul class="slides">
+        <li>
+            <img src="{% static 'banner_js.png' %}"> <!-- random image -->
+            <div class="caption right-align">
+                <h1>100 Days of JavaScript,</h1>
+                <a href="/category/javascript"><button class="btn-large black white-text waves-effect waves-light">Learn Now</button></a>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'banner_jquery.jpg' %}"> <!-- random image -->
+            <div class="caption left-align">
+                <h3>jQuery</h3>
+                <a href="/category/jquery"><button class="btn-large black white-text">Learn Now</button></a>
+            </div>
+        </li>
+
+        <li>
+            <img src="{% static 'banner_react.png' %}"> <!-- random image -->
+            <div class="caption right-align">
+                <h3>and React</h3>
+                <a href="/category/react"><button class="btn-large white black-text">Learn Now</button></a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% if newest %}
+<!-- What's New? -->
+<div class="section no-pad-bot" id="new" style="background: #182427;">
+    <div class="container">
+        <br><br>
+        <h1 class="header center white-text">Newest Lesson</h1>
+        <h3 class="header center white-text">{{ newest.title }}</h3>
+        <hr><br>
+        <div class="row center">
+            <h5 class="header col s12 light white-text">{{ newest.body | truncatechars:200 }}</h5>
+        </div>
+        <div class="row center">
+            <a href="{% url 'main:article' newest.slug %}" id="download-button"
+                class="z-depth-4 btn-large waves-effect waves-light black more">Read More</a>
+        </div>
+        <br><br>
+
+    </div>
+</div>
+<li class="divider"></li>
+{% else %}
+<p>No Articles Yet...</p>
+{% endif %}
+
+{% if last_three %}
+<!-- Last Three -->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="center grey-text">Last Three</h1>
+        <li class="divider"></li><br>
+        <div class="cards">
+            <div class="row">
+                {% for article in last_three %}
+                <div class="col s12 m6 l4 hover">
+                    <div class="card small z-depth-2">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="{{ article.article_img.url }}" alt="img" class="activator">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="card-title activator grey-text text-darken-4">{{ article.title }} <i
+                                    class="material-icons right">more_vert</i></h5>
+                        </div>
+                        <div class="card-reveal">
+                            <p class="card-title grey-text text-darken-4">{{ article.body|truncatechars:100 }} <i
+                                    class="material-icons right">close</i></p>
+                            <a href="{% url 'main:article' article.slug %}"><button
+                                    class="black btn white-text waves-effect waves-light down">Read More</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% else %}
+<p>No articles yet</p>
+{% endif %}
+</div>
+<!-- Latest Three Articles -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>100 Days of JavaScript</title>
+
+  <!-- CSS  -->
+  <link href="{% static 'icon.css' %}" rel="stylesheet">
+  <link href="{% static 'materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="{% static 'styles.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="stylesheet" href="{% static 'all.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'prism.css' %}">
+  <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+
+<body>
+  <!-- For PC Screen -->
+  <ul id="nav1" class="dropdown-content">
+    <li><a href="/category/javascript" class="grey-text text-darken-2">JavaScript</a></li>
+    <li><a href="/category/jquery" class="grey-text text-darken-2">jQuery</a></li>
+    <li><a href="/category/react" class="grey-text text-darken-2">React</a></li>
+  </ul>
+
+
+  <!-- For Smaller Screens -->
+  <ul id="nav2" class="dropdown-content">
+    <li><a href="/category/javascript">JavaScript</a></li>
+    <li><a href="/category/jquery">jQuery</a></li>
+    <li><a href="/category/react">React</a></li>
+  </ul>
+
+  <div class="navbar-fixed">
+    <nav class="z-depth-0 transparent" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="{% url 'main:index' %}"
+          class="brand-logo logo"><img src="{% static 'logo.png' %}" alt=""></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#" class="dropdown-trigger" data-target="nav1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li><a href="introduction-to-100-days-of-javascript">About</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#" class="dropdown-trigger" data-target="nav2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- BODY -->
+  {% block content %}{% endblock  %}
+
+  <!-- FOOTER -->
+  <footer class="page-footer black" id="footer">
+    <div class="container">
+      <div clas s="row">
+        <div class="col s12 center white-text">
+          <h4 class="white-text" id="contact">Contact Me</h4>
+          <a href="https://twitter.com/oluwakayodea_" class="white-text"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/kayode-oladipo-4704ba179/" class="white-text"><i
+              class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://facebook.com/oladipokayode.ayomikun1" class="white-text"><i
+              class="fab fa-facebook fa-2x"></i></a>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <p class="center">Copyright &copy; 2019</p>
+        <p class="center">Coded with <i class="material-icons tiny" style="color: red;">favorite</i> by <a
+            class="orange-text text-lighten-3">oluwakayode</a></p>
+
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'materialize.min.js' %}"></script>
+  <script src="{% static 'script.js' %}"></script>
+  <script src="{% static 'prism.js' %}"></script>
+  <script>
+
+    $(document).ready(function () {
+
+      $(window).scroll(function () {
+
+        if ($(window).scrollTop() > 100) {
+          $('nav').removeClass('transparent');
+          $('nav').addClass('black');
+        }
+
+        else {
+          $('nav').removeClass('black');
+          $('nav').addClass('transparent');
+        }
+
+      });
+
+    });
+
+  </script>
+</body>

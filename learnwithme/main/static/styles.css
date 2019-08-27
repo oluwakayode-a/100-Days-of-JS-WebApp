@@ -1,0 +1,71 @@
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 500px) {
+    .logo {
+        margin-left: 0;
+    }
+}
+
+
+.cards .card {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.page-footer .fa-2x {
+    margin: 5px 10px;
+}
+
+.more {
+    border-radius: 20px;
+}
+
+#post {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.parallax-container {
+    min-height: 550px;
+    line-height: 0;
+    height: auto;
+  }
+    .parallax-container .section {
+      width: 100%;
+    }
+  
+  @media only screen and (max-width : 992px) {
+    .parallax-container .section {
+      position: absolute;
+      top: 40%;
+    }
+    #index-banner .section {
+      top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+      top: 0;
+    }
+}
+
+.parallax img {
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+#startPosts {
+  transition: ease-in;
+}
+
+.navbar-fixed {
+  position: absolute;
+  z-index:999999999;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
